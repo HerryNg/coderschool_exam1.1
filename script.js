@@ -29,6 +29,9 @@
 //     console.log(i*i)
 //   }
 
+// const express = require('express')
+
+
 const data = [
     {
       id: 1,
@@ -47,6 +50,22 @@ const data = [
     },
   ];
   // for Q41 and 42.
+
+const fs = require('fs')
+
+const saveData = (data) =>{
+  const finished = (error) => {
+    if(error){
+      console.error(error)
+      return;
+    }
+  }
+
+  const jsonData = JSON.stringify(data)
+  fs.writeFile('db.json', jsonData, finished)
+}
+saveData(data)
+
 function getdata(){
 console.log(data[1].age);
 }
